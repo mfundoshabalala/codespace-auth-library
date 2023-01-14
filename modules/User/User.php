@@ -17,15 +17,14 @@ class User
 	public function __destruct()
 	{
 		$this->mysqli->close();
-		session_destroy();
 	}
 
-	public function login($username, $password)
+	public function login($username, $email, $password)
 	{
 		// Prepare the SQL statement
-		$stmt = $this->mysqli->prepare('SELECT * FROM users WHERE username = ?');
+		$stmt = $this->mysqli->prepare('SELECT * FROM users WHERE username = ? AND email = ? LIMIT 1');
 		// Bind the parameters
-		$stmt->bind_param('s', $username);
+		$stmt->bind_param('ss', $username, $email);
 		// Execute the statement
 		$stmt->execute();
 		// Get the result
@@ -40,6 +39,7 @@ class User
 				// Password is correct
 				// Set the session variables
 				$_SESSION['username'] = $user['username'];
+				$_SESSION['email'] = $user['email'];
 				$_SESSION['user_id'] = $user['user_id'];
 				$_SESSION['role'] = $user['role'];
 				$_SESSION['logged_in'] = true;
@@ -63,14 +63,14 @@ class User
 		session_destroy();
 	}
 
-	public function register($username, $password)
+	public function register($username, $email, $password)
 	{
 		// Hash the password
 		$password = password_hash($this->password, PASSWORD_DEFAULT);
 		// Prepare the SQL statement
-		$stmt = $this->mysqli->prepare('INSERT INTO users (username, password) VALUES (?, ?)');
+		$stmt = $this->mysqli->prepare('INSERT INTO users (username, email, password) VALUES (?, ?, ?)');
 		// Bind the parameters
-		$stmt->bind_param('ss', $username, $password);
+		$stmt->bind_param('sss', $username, $email, $password);
 		// Execute the statement
 		$stmt->execute();
 		// Check if the user was created
@@ -106,12 +106,12 @@ class User
 		}
 	}
 
-	public function userExists($username)
+	public function userExists($username, $email)
 	{
 		// Prepare the SQL statement
-		$stmt = $this->mysqli->prepare('SELECT * FROM users WHERE username = ?');
+		$stmt = $this->mysqli->prepare('SELECT * FROM users WHERE username = ? OR email = ?');
 		// Bind the parameters
-		$stmt->bind_param('s', $username);
+		$stmt->bind_param('ss', $username, $email);
 		// Execute the statement
 		$stmt->execute();
 		// Get the result
