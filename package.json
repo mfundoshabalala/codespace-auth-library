@@ -1,12 +1,16 @@
 {
   "scripts": {
-    "build": "npx tailwindcss -i ./public/styles.css -o ./dist/output.css --watch"
+    "build-webpack": "webpack --watch-poll",
+    "build-tailwind": "npx tailwindcss -i ./public/styles.css -o ./dist/output.css --watch"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
-    "@tailwindcss/container-queries": "^0.1.0"
+    "@tailwindcss/container-queries": "^0.1.0",
+    "just-validate": "^4.0.2"
   }
 }
