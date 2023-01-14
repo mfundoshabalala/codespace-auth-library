@@ -1,3 +1,108 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body {
+	@apply h-full;
+}
+
+body {
+	@apply flex flex-col font-sans
+}
+
+body > main {
+	@apply flex-1;
+}
+
+header {
+	@apply  flex items-center justify-between w-full p-6 bg-white border-b-2 border-gray-200;
+}
+
+header nav {
+	@apply flex flex-wrap items-center justify-around flex-1 font-light;
+}
+
+header nav a:not(.logo) {
+	@apply px-4 py-2 text-sm font-medium text-gray-900 uppercase transition duration-300 ease-in-out transform rounded-md shadow bg-gray-50 hover:bg-gray-100 hover:scale-105;
+}
+
+header ul {
+	@apply flex flex-wrap items-center justify-between gap-4;
+}
+
+section.wrapper {
+	@apply flex h-screen overflow-hidden bg-gray-100;
+}
+
+section.wrapper > div {
+	@apply flex items-center justify-center flex-1 h-full;
+}
+
+section.wrapper p {
+	@apply p-4 text-gray-500 sm:text-sm;
+}
+
+section.wrapper a:hover {
+	@apply text-gray-700 underline;
+}
+
+h1 {
+	@apply text-2xl font-extrabold text-center text-gray-900;
+}
+
+h2 {
+	@apply font-bold text-center text-gray-900;
+}
+
+form {
+	@apply flex flex-col w-full max-w-md px-6 my-4;
+}
+
+
+form label {
+	@apply text-gray-900 sm:text-sm;
+}
+
+.form-control {
+	@apply w-full mt-1;
+}
+
+input:not([type="checkbox"]) {
+	@apply block w-full px-4 py-2 mt-1 text-gray-900 placeholder-gray-500 border-gray-300 rounded-md shadow-inner bg-gray-50 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+}
+
+input[type="checkbox"] {
+	@apply text-gray-900 placeholder-gray-500 border-gray-300 rounded shadow-inner bg-gray-50 focus:outline-none sm:text-sm;
+}
+
+.items-inline {
+	@apply flex flex-row-reverse items-center justify-end gap-2 px-2 py-4;
+}
+
+.btn {
+	@apply w-full max-w-sm px-4 py-2 text-sm font-bold uppercase border rounded-md shadow;
+}
+
+.btn-primary {
+	@apply mx-auto text-white border-orange-900 bg-gradient-to-r from-orange-800 to-orange-900;
+}
+
+.btn-secondary {
+	@apply max-w-xs text-white shadow bg-gradient-to-r from-sky-700 to-sky-900;
+}
+
+.btn-danger {
+	@apply max-w-xs text-white shadow bg-gradient-to-r from-red-900 to-red-700;
+}
+
+table {
+	@apply max-w-full mx-auto font-light border border-collapse rounded table-fixed min-w-fit border-slate-400;
+}
+
+th {
+	@apply text-sm font-medium text-left text-gray-900;
+}
+
+th,td {
+	@apply px-3 py-1.5 border border-slate-300;
+}
