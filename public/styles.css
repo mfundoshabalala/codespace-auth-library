@@ -11,7 +11,7 @@ body {
 }
 
 body > main {
-	@apply flex-1;
+	@apply flex flex-col items-center justify-center flex-1 bg-gray-100;
 }
 
 header {
@@ -55,9 +55,8 @@ h2 {
 }
 
 form {
-	@apply flex flex-col w-full max-w-md px-6 my-4;
+	@apply flex flex-col w-full px-6 my-4;
 }
-
 
 form label {
 	@apply text-gray-900 sm:text-sm;
