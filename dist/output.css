@@ -916,8 +916,8 @@ select {
   min-width: max-content;
 }
 
-.min-w-\[1\/2\] {
-  min-width: 1/2;
+.max-w-3xl {
+  max-width: 48rem;
 }
 
 .max-w-xl {
@@ -930,6 +930,10 @@ select {
 
 .max-w-4xl {
   max-width: 56rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .grid-cols-1 {
@@ -1297,6 +1301,7 @@ form label {
 .form-control {
   margin-top: 0.25rem;
   width: 100%;
+  min-width: 400px;
 }
 
 input:not([type="checkbox"]) {
