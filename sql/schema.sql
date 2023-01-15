@@ -1,0 +1,35 @@
+-- Create user table
+CREATE TABLE user (
+	"id" SERIAL PRIMARY KEY,
+	"username" VARCHAR(255) NOT NULL,
+	"password" VARCHAR(255) NOT NULL,
+	"email" VARCHAR(255) NOT NULL,
+	"role" VARCHAR(255) NOT NULL,
+	"created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+);
+-- Create book table
+CREATE TABLE book (
+	"id" SERIAL PRIMARY KEY,
+	"title" VARCHAR(255) NOT NULL,
+	"author_id" INT NOT NULL REFERENCES author(id),
+	"genre" VARCHAR(255) NOT NULL,
+	"year" VARCHAR(255) NOT NULL,
+	"isbn" VARCHAR(255) NOT NULL,
+	"publisher" VARCHAR(255) NOT NULL,
+	"image" VARCHAR(255) NOT NULL,
+	"status" VARCHAR(255) NOT NULL,
+	"created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create author table
+CREATE TABLE author (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR(255) NOT NULL,
+	"created_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	"updated_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create book author view
+-- CREATE VIEW book_author
