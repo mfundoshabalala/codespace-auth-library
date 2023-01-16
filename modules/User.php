@@ -4,17 +4,16 @@ class User
 {
 	public function __construct()
 	{
-		#code here
+		echo 'Signing in';
 	}
 
 	public function __destruct()
 	{
-		#code here
+		echo 'Signing out';
 	}
 
 	public function login($username, $email, $password)
 	{
-		#code here
 	}
 
 	public function logout()
