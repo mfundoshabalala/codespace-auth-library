@@ -1,7 +1,4 @@
 <?php
-// set the heading and require the template
-$heading = 'Add a Book to the Collection';
-
 require 'config/index.php';
 $db = new Database($config['database']);
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,4 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$bookId,
 	]);
 }
+
+// set the heading and require the template
+$heading = 'Add a Book to the Collection';
+$gradient = 'from-slate-700 via-teal-600 to-slate-700';
 require 'templates/book/create.template.php';
