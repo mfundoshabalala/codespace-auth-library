@@ -1,3 +1,1 @@
-<?php
-
-require 'templates/404.template.php';
+<?php require 'templates/404.template.php';
