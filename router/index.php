@@ -12,7 +12,7 @@ function abort($code = 404)
 	die();
 }
 
-$configs = require 'config\index.php';
+require 'config\index.php';
 
 // Route to the controller
 function routeToController($uri, $routes)
